@@ -6,9 +6,45 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/home',function(){
+    $blogs = [
+        [
+            'title' => 'Title One',
+            'body' => 'this is a body',
+        ],
+        [
+            'title' => 'Title two',
+            'body' => 'this is a body',
+        ],
+        [
+            'title' => 'Title Three',
+            'body' => 'this is a body',
+        ],
+        [
+            'title' => 'Title Four',
+            'body' => 'this is a body',
+        ],
+        [
+            'title' => 'Kontollll',
+            'body' => 'this is a kontol',
+        ]
+        ];
+    return view('home',compact('blogs'));
+});
+
+Route::get('/about',function(){
+    return view('about');
+})->name('about');
+
 // Route::get('about',function(){
-//     return "<h1>About Page</h1>";
-// })->name('about');
+//     $about = "This is About Page";
+//     $about2 = "Jancok";
+//     return view('about.index', compact('about','about2'));
+//     //COMPACT FUNCTION BERFUNGSI UNTUK MEMANGGIL VARIABLE ABOUT 
+//     //DAN MEMBERINYA AKSES UNTUK DIGUNAKAN
+//     //DI HALAMAN ABOUT
+// });
 
 // Route::get('contact',function(){
 //     return "<h1>Contact Page</h1>";
