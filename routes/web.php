@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,35 +9,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home',function(){
-    $blogs = [
-        [
-            'title' => 'Title One',
-            'body' => 'this is a body',
-        ],
-        [
-            'title' => 'Title two',
-            'body' => 'this is a body',
-        ],
-        [
-            'title' => 'Title Three',
-            'body' => 'this is a body',
-        ],
-        [
-            'title' => 'Title Four',
-            'body' => 'this is a body',
-        ],
-        [
-            'title' => 'Kontollll',
-            'body' => 'this is a kontol',
-        ]
-        ];
-    return view('home',compact('blogs'));
-});
+Route::get('/home', [HomeController::class,'index']);
 
-Route::get('/about',function(){
-    return view('about');
-})->name('about');
+Route::get('/about',[AboutController::class, 'index']
+)->name('about');
 
 // Route::get('about',function(){
 //     $about = "This is About Page";
