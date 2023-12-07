@@ -3,6 +3,7 @@
 use App\Http\Controllers\_HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,14 +11,16 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/home', [HomeController::class,'index']);
-Route::get('/home', _HomeController::class);
+Route::get('/home', [HomeController::class,'index']);
+//Route::get('/home', _HomeController::class); //SINGLE ACTION CONTROLLER TIDAK PERLU DEKLARASIKAN NAMA METHOD//
 
 Route::get('/about',[AboutController::class, 'index']
 )->name('about');
 
 Route::resource('blog',BlogController::class);
 
+Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::post('/login',[LoginController::class, 'handleLogin'])->name('login.submit');
 // Route::get('about',function(){
 //     $about = "This is About Page";
 //     $about2 = "Jancok";
@@ -40,17 +43,17 @@ Route::resource('blog',BlogController::class);
 // });
 
 //---- ROUTE GROUPING CUSTOMER -----//
-Route::group(['prefix' => 'customer'], function(){
-    Route::get('/', function(){
-        return '<h1>Customer List<\h1>';
-    });
-    Route::get('/create', function(){
-        return '<h1>Customer create<\h1>';
-    });
-    Route::get('/create', function(){
-        return '<h1>Customer show<\h1>';
-    });
-});
+// Route::group(['prefix' => 'customer'], function(){
+//     Route::get('/', function(){
+//         return '<h1>Customer List<\h1>';
+//     });
+//     Route::get('/create', function(){
+//         return '<h1>Customer create<\h1>';
+//     });
+//     Route::get('/create', function(){
+//         return '<h1>Customer show<\h1>';
+//     });
+// });
 
 //--- ROUTE METHODS -------//
 //--- GET - Request a resource //

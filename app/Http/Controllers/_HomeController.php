@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 
 class _HomeController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
+    //---- SINGLE ACTION CONTROLLER FUNGSINYA HANYA UNTUK MELAKUKAN SATU PERINTAH DARI CONTROLLER TSB ---//
     public function __invoke(Request $request)
     {
             $blogs = [
